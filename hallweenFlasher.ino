@@ -7,7 +7,7 @@ int randomNumber;
 int randDelay;
 int lightValue;
 int roundCount = 0;
-int maxCycles = 120;
+int maxCycles = 1100;
 
 void setup() {
   Serial.begin(9600);
@@ -84,13 +84,13 @@ void loop() {
       Serial.println(lightValue);
       flash();
       redSolid();
-    } else if (roundCount >= maxCycles){
+    } else if (roundCount >= maxCycles && lightValue < 50){
       //After maxCycles have been reached keep only
       //two lights lit to save power until dawn. 
       Serial.print("Max Cycles Reached: ");
       Serial.println(roundCount);
-        CircuitPlayground.setPixelColor(2, 255,0,0);
-        CircuitPlayground.setPixelColor(7, 255,0,0);
+      CircuitPlayground.setPixelColor(2, 255,0,0);
+      CircuitPlayground.setPixelColor(7, 255,0,0);
     }
   }
 }
