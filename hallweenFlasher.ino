@@ -70,11 +70,6 @@ void redSolid(){
 
 void loop() {
   lightValue = CircuitPlayground.lightSensor();
-  //dusk is about 50 so anythin less than 50 and
-  //the light cycle will begin.
-  //maxCycles are about 120 which give or take 30
-  //mintues, the lights will flash for about seven 
-  //hours. Then it will go into power save mode
   if (lightValue < 50){
     if (roundCount < maxCycles){
       roundCount = roundCount + 1;
