@@ -1,6 +1,8 @@
-# Halloween Skeleton Flasher #
+# Halloween Skeleton Flasher# #
 
-![LED Flashed](flasher.gif?raw=true "Flashing Skeleton")
+
+![LED Flasher](flasher.gif?raw=true)
+
 
 ### About ###
 Every Halloween, I zip-tie a skeleton from a basketball hoop in my front yard. This year, I decided to use an Adafruit Circuit Playground Express to illuminate the skeleton at night. I choose the circuit playground for two reasons. 1. It has an onboard light sensor. 2. it has ten neopixels built onto the board.   Dusk is about 50 (light measurement), so anything less than 50 and the light cycle will begin. Once started, the code will count cycles until the "maxCycles" are reached; 120 cycles. After about seven hours (give or take 30 minutes due to randomness), the code will go into a power-saver mode (working off of three-D batteries) and only illuminate two of the 10 neopixels until dawn (no flashing)
