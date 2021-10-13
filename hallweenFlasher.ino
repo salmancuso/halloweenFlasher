@@ -71,21 +71,22 @@ void redSolid(){
 void loop() {
   lightValue = CircuitPlayground.lightSensor();
   if (lightValue < 50){
-    if (roundCount < maxCycles){
-      roundCount = roundCount + 1;
-      Serial.print("Round Count: ");
-      Serial.println(roundCount);
-      Serial.print("Light Sensor: ");
-      Serial.println(lightValue);
-      flash();
-      redSolid();
-    } else if (roundCount >= maxCycles && lightValue < 50){
-      //After maxCycles have been reached keep only
-      //two lights lit to save power until dawn. 
-      Serial.print("Max Cycles Reached: ");
-      Serial.println(roundCount);
-      CircuitPlayground.setPixelColor(2, 255,0,0);
-      CircuitPlayground.setPixelColor(7, 255,0,0);
+      if(roundCount < maxCycles){
+        roundCount = roundCount + 1;
+        flash();
+        redSolid();
+      } else {
+        CircuitPlayground.setPixelColor(2, 255,0,0);
+        CircuitPlayground.setPixelColor(7, 255,0,0);
+        delay(500);
+      }
+    } else {
+      CircuitPlayground.clearPixels();
+      if (lightValue > 100){
+          delay(30000);
+          if (lightValue > 100){
+            roundCount = 0;
+          }
+        }
     }
-  }
 }
